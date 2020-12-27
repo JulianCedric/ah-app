@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 import Cues from './Cues';
+import TableExample from './TableExample';
 
-class Home extends React.Component {
+class G1 extends React.Component {
     state = {  
         gameStarted: false,
         playerName: '',
@@ -21,9 +22,13 @@ class Home extends React.Component {
 
     render() { 
         return (  
-            <div style={{color: 'white'}}>
+            <div style={{color: 'grey'}}>
                 <br/>
-                { this.state.gameStarted ? 'Good luck, Player1!' : <Button inverted onClick={this.handleClick}>Start Game</Button> }
+                    <h3>G1</h3>
+                <br/>
+                <hr/>
+                <br/>
+                { this.state.gameStarted ? <h7>Good luck, Player1!</h7> : <Button inverted color='violet' onClick={this.handleClick}>Start Game</Button> }
                 { this.state.renderCues ? <Cues /> : null }
                 <br/>
 
@@ -38,9 +43,11 @@ class Home extends React.Component {
                 <br/>
                 <br/>
 
+                <TableExample />
+
             </div>
         );
     }
 }
  
-export default Home;
+export default G1;
