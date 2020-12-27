@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 import HabitLoopFramework from './HabitLoopFramework';
-import MenuExample from './MenuExample';
 
 class Cues extends React.Component {
     state = {  
@@ -40,7 +39,6 @@ class Cues extends React.Component {
 
                 <HabitLoopFramework />
 
-                <MenuExample/>
 
             </div>
         );
