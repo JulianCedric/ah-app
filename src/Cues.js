@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, Input } from 'semantic-ui-react';
+import GridExampleStackable from './GridExampleStackable';
 import HabitLoopFramework from './HabitLoopFramework';
 
 class Cues extends React.Component {
@@ -26,6 +27,10 @@ class Cues extends React.Component {
         return (  
             <div>
                 <br/>
+                <h3>What new daily habit would you like to have?</h3>
+                <Input placeholder='e.g. practice coding for 1 hour, do 20 pushups, etc.' style={{width: '350px'}}/>
+                <br/>
+                <br/>
                 <Button inverted color='orange' onClick={this.handleClickHabitLoop1}>Habit Loop 1</Button>
                 <br/>
                 <br/>
@@ -35,6 +40,10 @@ class Cues extends React.Component {
                 <Button inverted color='orange' onClick={this.handleClickHabitLoop3}>Habit Loop 3</Button>
                 <br/>
                 <br/>
+                <br/>
+
+                <GridExampleStackable />
+
                 <br/>
 
                 <HabitLoopFramework />

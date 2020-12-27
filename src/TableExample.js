@@ -5,9 +5,10 @@ const TableExample = () => (
   <Table inverted>
     <Table.Header>
       <Table.Row>
-        <Table.HeaderCell>HEADER1</Table.HeaderCell>
-        <Table.HeaderCell>HEADER2</Table.HeaderCell>
-        <Table.HeaderCell>HEADER3</Table.HeaderCell>
+        <Table.HeaderCell>Cue</Table.HeaderCell>
+        <Table.HeaderCell>Craving</Table.HeaderCell>
+        <Table.HeaderCell>Response</Table.HeaderCell>
+        <Table.HeaderCell>Reward</Table.HeaderCell>
       </Table.Row>
     </Table.Header>
 
@@ -16,16 +17,19 @@ const TableExample = () => (
         <Table.Cell>C1-R1</Table.Cell>
         <Table.Cell>C2-R1</Table.Cell>
         <Table.Cell>C3-R1</Table.Cell>
-      </Table.Row>
+        <Table.Cell>C4-R1</Table.Cell>
+        </Table.Row>
       <Table.Row>
         <Table.Cell>C1-R2</Table.Cell>
         <Table.Cell>C2-R2</Table.Cell>
-        <Table.Cell>C2-R2</Table.Cell>
+        <Table.Cell>C3-R2</Table.Cell>
+        <Table.Cell>C4-R2</Table.Cell>
       </Table.Row>
       <Table.Row>
         <Table.Cell>C1-R3</Table.Cell>
         <Table.Cell>C2-R3</Table.Cell>
         <Table.Cell>C3-R3</Table.Cell>
+        <Table.Cell>C4-R3</Table.Cell>
       </Table.Row>
     </Table.Body>
 
@@ -33,7 +37,8 @@ const TableExample = () => (
       <Table.Row>
         <Table.HeaderCell>C1-R4</Table.HeaderCell>
         <Table.HeaderCell>C2-R4</Table.HeaderCell>
-        <Table.HeaderCell />
+        <Table.HeaderCell>C3-R4</Table.HeaderCell>
+        <Table.HeaderCell>C4-R4</Table.HeaderCell>
       </Table.Row>
     </Table.Footer>
   </Table>
