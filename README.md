@@ -79,5 +79,28 @@ TLP App
 
 2020.12.28 - MON: 
 
-testUser added to App.js
+'ah-app - Updates - testUser added to App.js'
+
+'ah-app - Updates - testData added to Lab.js'
+
+<!--  -->
+
+RULES OF THE GAME:
+
+    HOW TO PLAY
+
+    HOW TO WIN 
+
+<!--  -->
+
+EXAMPLE: 
+
+The two-step process for changing one's identity is:
+
+    1. Decide the type of person you want to be.
+    2. Prove it to yourself with small wins.  
+
+I——the user——decide to become a CONSISTENT and EFFECTIVE person. 
+
+In order to prove this to myself, I need to define what qualifies as 'small wins' ——KPI's——, then I need a daily / weekly / quarterly system to track my progress. 
 
