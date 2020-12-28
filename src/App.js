@@ -7,8 +7,20 @@ import ThinkSpace from './ThinkSpace';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
 
+const USERS = [
+  {
+    id: 1,
+    username: 'jpormentilla',
+    password: 'pass123',
+    email: 'julian.pormentilla@gmail.com'
+  }
+]
+
 class App extends React.Component {
-  state = {  }
+  state = {  
+    users: []
+  }
+
   render() { 
 
   return (
