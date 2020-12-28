@@ -15,8 +15,20 @@ const HABITS = [
     }
 ]
 
+const CLASSES = [
+    {
+        id: 1,
+        subject: 'Consistency'
+    },
+    {
+        id: 2,
+        subject: 'Effectiveness'
+    }
+]
+
 class Lab extends React.Component {
     state = {  
+        classes: [],
         gameStarted: false,
         habits: [],
         renderCues: false
