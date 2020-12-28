@@ -77,4 +77,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 TLP App
 
- 
+2020.12.28 - MON: 
+
+testUser added to App.js
+
