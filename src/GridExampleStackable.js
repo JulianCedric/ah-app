@@ -16,4 +16,4 @@ const GridExampleStackable = () => (
   </Grid>
 )
 
-export default GridExampleStackable
+export default GridExampleStackable;

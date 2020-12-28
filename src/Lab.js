@@ -4,7 +4,7 @@ import Cues from './Cues';
 import TableExample from './TableExample';
 import Login from './Login';
 
-class G1 extends React.Component {
+class Lab extends React.Component {
     state = {  
         gameStarted: false,
         playerName: '',
@@ -25,7 +25,7 @@ class G1 extends React.Component {
         return (  
             <div style={{color: 'grey'}}>
                 <br/>
-                <h3>G1</h3>
+                <h3>Lab</h3>
                 
                 <br/>
                 <hr/>
@@ -46,11 +46,31 @@ class G1 extends React.Component {
                 <br/>
                 <br/>
 
-                <TableExample />
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
 
             </div>
         );
     }
 }
  
-export default G1;
+export default Lab;
