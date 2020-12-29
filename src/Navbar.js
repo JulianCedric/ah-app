@@ -18,6 +18,10 @@ class Navbar extends React.Component {
                         <Link to='/thinkspace' className='thinkspace'>Think Space</Link>
                     </a>
 
+                    <a class='item'>
+                        <Link to='/newfeature' className='thinkspace'>New Feature</Link>
+                    </a>
+
                     <div className="right menu">
                         <a className="item">
                         {

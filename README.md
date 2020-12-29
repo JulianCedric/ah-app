@@ -83,6 +83,8 @@ TLP App
 
 'ah-app - Updates - testData added to Lab.js'
 
+'ah-app - Updates - testClasses added to Lab.js'
+
 <!--  -->
 
 RULES OF THE GAME:
