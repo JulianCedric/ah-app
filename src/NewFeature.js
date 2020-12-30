@@ -3,7 +3,6 @@ import './App.css';
 import { Button } from 'semantic-ui-react';
 import PersonsContainer from './PersonsContainer';
 import Tasks from './Tasks';
-import UpdatePerson from './UpdatePerson';
 
 const PERSONS = [
     { 
@@ -56,12 +55,17 @@ class NewFeature extends React.Component {
         renderGrid: false,
         renderPersons: false,
         renderIndexCard: false,
-        renderUpdatePerson: false,
         tasks: []
     }
 
     exercise = (id, health) => {
+    // When a user exercises, their health level increases by 10.
         console.log('EVENT2: USER CLICKED [ Exercise ] BUTTON.')    
+    
+        let arr = [...this.state.persons]
+        let obj = arr.find(person => person.id === id)
+        obj.health = obj.health + 10
+        this.setState({ persons: arr })
     }
 
     handleClickLoadPersons = e => {
@@ -83,7 +87,7 @@ class NewFeature extends React.Component {
 
     render() { 
         console.log('this.state.person: ', this.state.person)
-        console.log('this.state.renderUpdatePerson: ', this.state.renderUpdatePerson)
+        console.log('this.state.persons: ', this.state.persons)
         return (            
             <div style={{color: 'grey'}}>
                 <br/>
@@ -97,8 +101,6 @@ class NewFeature extends React.Component {
 
                 <br/>
                 <br/>
-
-                { this.state.renderUpdatePerson ? <UpdatePerson person={this.state.person}/> : null }
 
                 { this.state.renderPersons ? <PersonsContainer exercise={this.exercise} persons={this.state.persons}/> : null }
 
