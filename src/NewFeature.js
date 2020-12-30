@@ -61,10 +61,7 @@ class NewFeature extends React.Component {
     }
 
     exercise = (id, health) => {
-        console.log('EVENT2: USER CLICKED [ Exercise ] BUTTON.')
-        let elem = this.state.persons.find(person => person.id === id)
-        this.setState({ person: elem })
-        this.setState({ renderUpdatePerson: true })
+        console.log('EVENT2: USER CLICKED [ Exercise ] BUTTON.')    
     }
 
     handleClickLoadPersons = e => {
@@ -101,9 +98,9 @@ class NewFeature extends React.Component {
                 <br/>
                 <br/>
 
-                { this.state.renderPersons ? <PersonsContainer exercise={this.exercise} persons={this.state.persons}/> : null }
-
                 { this.state.renderUpdatePerson ? <UpdatePerson person={this.state.person}/> : null }
+
+                { this.state.renderPersons ? <PersonsContainer exercise={this.exercise} persons={this.state.persons}/> : null }
 
 
                 {/* <Button color='yellow' onClick={this.handleClickIndexCard}>Index Card</Button> */}
