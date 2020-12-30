@@ -1,11 +1,12 @@
 import React from 'react';
 import TableExample from './TableExample';
-import GridExampleStackable from './GridExampleStackable';
+import Tasks from './Tasks';
 import HabitLoopFramework from './HabitLoopFramework';
 import { Button, Input } from 'semantic-ui-react';
 
 class ThinkSpace extends React.Component {
     state = {  }
+
     render() { 
         return (  
             <div style={{color: 'grey'}}>
@@ -20,22 +21,11 @@ class ThinkSpace extends React.Component {
                 <Input placeholder='e.g. practice coding for 1 hour, do 20 pushups, etc.' style={{width: '350px'}}/>
                 <br/>
 
-                <GridExampleStackable />
+                <Tasks />
 
                 <HabitLoopFramework />
 
                 <TableExample />
-
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
 
                 <br/>
                 <br/>
