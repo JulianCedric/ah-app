@@ -25,6 +25,10 @@ class Habit extends React.Component {
                         <Button onClick={() => this.handleClickEdit(this.props.habit.id, this.props.habit.desc)}>Edit</Button>
                         <Button onClick={() => this.handleClickDelete(this.props.habit.id)}>Delete</Button>
                     </Card.Content>
+                    <Card.Content>
+                        <Card.Meta>Start Date/Time:</Card.Meta>
+                        <Card.Meta>{this.props.habit.startDate}</Card.Meta>
+                    </Card.Content>
                 </Card>
                 <br/>
             </div>

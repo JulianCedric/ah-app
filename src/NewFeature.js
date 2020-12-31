@@ -6,19 +6,23 @@ import Tasks from './Tasks';
 import CreateForm from './CreateForm';
 import HabitsContainer from './HabitsContainer';
 import Edit from './Edit';
+import Datetime from 'react-datetime';
 
 const HABITS = [
     {
         id: 1, 
-        desc: 'Morning Routine'
+        desc: 'Morning Routine',
+        startDate: Date()
     },
     {
         id: 2,
-        desc: 'Evening Routine'
+        desc: 'Evening Routine',
+        startDate: Date()
     },
     {
         id: 3,
-        desc: 'Index Cards System'
+        desc: 'Index Cards System',
+        startDate: Date()
     }
 ]
 
@@ -141,6 +145,7 @@ class NewFeature extends React.Component {
 
     render() { 
         console.log('this.state.: ', this.state.habits)
+        console.log('Datetime value: ', Date().value)
         return (            
             <div style={{color: 'grey'}}>
                 <br/>
@@ -150,6 +155,10 @@ class NewFeature extends React.Component {
 
                 <br/>
                 <hr/>
+                <br/>
+
+                <br/>
+                <Datetime />
                 <br/>
 
                 <CreateForm create={this.create}/>

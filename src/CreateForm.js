@@ -4,19 +4,27 @@ import { Form } from 'semantic-ui-react';
 class CreateForm extends React.Component {
     state = {
         id: 0,
-        desc: ""
+        desc: "",
+        startDate: Date()
     }
 
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    handleSubmit = obj => {
-        console.log('EVENT: USER CLICKED [ Save ] BUTTON.')    
-        this.props.create(this.state)   
+    handleSubmit = (e, obj) => {
+        console.log('EVENT: USER CLICKED [ Start ] BUTTON.')    
+        e.preventDefault()
+        this.props.create(this.state)
+        this.setState({ 
+            id: 0,
+            desc: ""
+        })   
     }
 
     render() {
+        console.log(this.state)
+        console.log(Date().toLocaleString())
         return (
             <div>
                 <Form onSubmit={this.handleSubmit}>
@@ -28,7 +36,7 @@ class CreateForm extends React.Component {
                             onChange={this.handleChange}
                         />     
                     </Form.Group>
-                    <Form.Button content='Save' />
+                    <Form.Button content='Start' />
                 </Form>
             </div>
         );
