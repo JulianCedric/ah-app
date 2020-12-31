@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Button, Card, Grid, Icon, Segment } from 'semantic-ui-react';
+import { Button, Card, Form, Grid, Icon, Segment } from 'semantic-ui-react';
 
 class PersonCard extends React.Component {
     state = {  }
@@ -28,6 +28,13 @@ class PersonCard extends React.Component {
                             </Card.Content>
                             <Card.Content>
                                 <Button onClick={() => this.handleClickExercise(this.props.person.id, this.props.person.health)} primary>Exercise</Button>
+                            </Card.Content>
+                            <Card.Content>
+                                <Form>
+                                    <Form.Checkbox label="Morning Routine"/>
+
+                                    <Form.Checkbox label="Evening Routine"/>
+                                </Form>
                             </Card.Content>
                             <Card.Content extra>
                                 <a>

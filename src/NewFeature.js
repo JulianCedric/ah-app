@@ -3,6 +3,24 @@ import './App.css';
 import { Button } from 'semantic-ui-react';
 import PersonsContainer from './PersonsContainer';
 import Tasks from './Tasks';
+import CreateForm from './CreateForm';
+import HabitsContainer from './HabitsContainer';
+import Edit from './Edit';
+
+const HABITS = [
+    {
+        id: 1, 
+        desc: 'Morning Routine'
+    },
+    {
+        id: 2,
+        desc: 'Evening Routine'
+    },
+    {
+        id: 3,
+        desc: 'Index Cards System'
+    }
+]
 
 const PERSONS = [
     { 
@@ -50,22 +68,58 @@ const TASKS = [
 
 class NewFeature extends React.Component {
     state = {  
+        habits: [],
+        habitEdit: {},
         person: {},
         persons: [],
+        renderEdit: false,
         renderGrid: false,
         renderPersons: false,
         renderIndexCard: false,
         tasks: []
     }
 
+    create = obj => {
+        console.log(obj)
+        obj.id = this.state.habits.length + 1
+        let arr = [...this.state.habits, obj]
+        this.setState({ habits: arr })
+    }
+
+    delete = id => {
+        console.log(id)
+        let arr = this.state.habits.filter(habit => habit.id !== id)
+        this.setState({ habits: arr })
+    }
+
+    edit = (id, desc) => {
+        console.log( id, desc)
+        let arr = [...this.state.habits]
+        let obj = arr.find(elem => elem.id === id)
+        this.setState({ renderEdit: true })
+        this.setState({ habitEdit: obj })
+    }
+
+    editSubmit = (id, desc) => {
+        console.log(id, desc)
+        let arr = [...this.state.habits]
+        let elem = arr.find(habit => habit.id === id)
+        elem.desc = desc
+        this.setState({ habits: arr })
+    }
+
     exercise = (id, health) => {
     // When a user exercises, their health level increases by 10.
         console.log('EVENT2: USER CLICKED [ Exercise ] BUTTON.')    
-    
         let arr = [...this.state.persons]
         let obj = arr.find(person => person.id === id)
         obj.health = obj.health + 10
         this.setState({ persons: arr })
+    }
+
+    handleClickLoadHabits = e => {
+        console.log('EVENT: USER CLICKED [ Load Habits ] BUTTON.')
+        this.setState({ habits: HABITS })
     }
 
     handleClickLoadPersons = e => {
@@ -86,18 +140,113 @@ class NewFeature extends React.Component {
     }
 
     render() { 
-        console.log('this.state.person: ', this.state.person)
-        console.log('this.state.persons: ', this.state.persons)
+        console.log('this.state.: ', this.state.habits)
         return (            
             <div style={{color: 'grey'}}>
                 <br/>
                 <h3>New Feature</h3>
                 
+                <Button onClick={this.handleClickLoadHabits} primary>Load Habits</Button>
+
                 <br/>
                 <hr/>
                 <br/>
 
+                <CreateForm create={this.create}/>
+
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                {this.state.renderEdit ? <Edit editSubmit={this.editSubmit} habitEdit={this.state.habitEdit} /> : null }
+                <br/>
+
+                <HabitsContainer delete={this.delete} edit={this.edit} habits={this.state.habits} />
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+
                 <Button onClick={this.handleClickLoadPersons} primary>Load Persons</Button>
+
+                <br/>
+                <br/>
+
+
 
                 <br/>
                 <br/>
