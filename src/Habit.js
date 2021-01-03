@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Card } from 'semantic-ui-react';
 
 class Habit extends React.Component {
-    state = {  }
+    state = {   }
 
     handleClickDelete = id => {
         console.log('EVENT: USER CLICKED [ Delete ] BUTTON.')
@@ -21,6 +21,7 @@ class Habit extends React.Component {
 
     render() { 
         console.log(this.props.habit)
+        console.log(this.props.habit.hide)
         return (  
             <div>
                 <Card>

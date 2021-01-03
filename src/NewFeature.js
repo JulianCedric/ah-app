@@ -14,20 +14,23 @@ const HABITS = [
     {
         id: 1, 
         desc: 'Morning Routine',
+        hide: false,
         startDate: Date(), 
-        winningStreak: 0
+        winningStreak: 0,
     },
     {
         id: 2,
         desc: 'Mid-Day Routine',
+        hide: false,
         startDate: Date(), 
-        winningStreak: 0
+        winningStreak: 1
     },
     {
         id: 3,
         desc: 'Evening Routine',
+        hide: false,
         startDate: Date(), 
-        winningStreak: 20
+        winningStreak: 21
     }
 ]
 
@@ -153,10 +156,13 @@ class NewFeature extends React.Component {
         this.setState({ renderGrid: true })
     }
 
-    handleStickifyd = obj => {
-        this.setState({ renderStickifyd: true })
-        this.setState({ habitStickifyd: obj })
-    }
+    // handleStickifyd = obj => {
+    //     this.setState({ renderStickifyd: true })
+    //     let arr = [...this.state.habits]
+    //     let elem = arr.find(habit => habit.id === obj.id)
+    //     elem.hide = false
+    //     this.setState({ habits: arr })
+    // }
 
     testRemind = (id, desc) => {
         console.log(id, desc)
@@ -172,7 +178,9 @@ class NewFeature extends React.Component {
         let elem = arr.find(habit => habit.id === id)
         elem.winningStreak = elem.winningStreak + 1
         if (elem.winningStreak === 21) {
-            this.handleStickifyd(elem)
+            // this.handleStickifyd(elem)
+            // elem.hide = true
+            this.setState({ habits: arr })
         }
         this.setState({ habits: arr })
         this.setState({ renderTestRemind: !this.state.renderTestRemind })
@@ -190,9 +198,10 @@ class NewFeature extends React.Component {
 
                 <br/>
                 <br/>
-                {this.state.renderStickifyd ? <Stickifyd habitStickifyd={this.state.habitStickifyd} /> : null }
-                <br/>
+                {/* {this.state.renderStickifyd ? <Stickifyd habitStickifyd={this.state.habitStickifyd} /> : null }                 */}
+                <Stickifyd habitStickifyd={this.state.habitStickifyd} />
 
+                <br/>
                 <br/>
                 <hr/>
                 <br/>
