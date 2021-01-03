@@ -6,23 +6,27 @@ import Tasks from './Tasks';
 import CreateForm from './CreateForm';
 import HabitsContainer from './HabitsContainer';
 import Edit from './Edit';
+import TestRemind from './TestRemind';
 import Datetime from 'react-datetime';
 
 const HABITS = [
     {
         id: 1, 
         desc: 'Morning Routine',
-        startDate: Date()
+        startDate: Date(), 
+        winningStreak: 0
     },
     {
         id: 2,
-        desc: 'Evening Routine',
-        startDate: Date()
+        desc: 'Mid-Day Routine',
+        startDate: Date(), 
+        winningStreak: 0
     },
     {
         id: 3,
-        desc: 'Index Cards System',
-        startDate: Date()
+        desc: 'Evening Routine',
+        startDate: Date(), 
+        winningStreak: 0
     }
 ]
 
@@ -74,12 +78,14 @@ class NewFeature extends React.Component {
     state = {  
         habits: [],
         habitEdit: {},
+        habitTestRemind: {},
         person: {},
         persons: [],
         renderEdit: false,
         renderGrid: false,
         renderPersons: false,
         renderIndexCard: false,
+        renderTestRemind: false,
         tasks: []
     }
 
@@ -110,6 +116,7 @@ class NewFeature extends React.Component {
         let elem = arr.find(habit => habit.id === id)
         elem.desc = desc
         this.setState({ habits: arr })
+        this.setState({ renderEdit: !this.state.renderEdit })
     }
 
     exercise = (id, health) => {
@@ -145,6 +152,19 @@ class NewFeature extends React.Component {
 
     testRemind = (id, desc) => {
         console.log(id, desc)
+        let arr = [...this.state.habits]
+        let obj = arr.find(elem => elem.id === id)
+        this.setState({ renderTestRemind: true })
+        this.setState({ habitTestRemind: obj })
+    }
+
+    testRemindSubmit = (id, desc) => {
+        console.log(id, desc)
+        let arr = [...this.state.habits]
+        let elem = arr.find(habit => habit.id === id)
+        elem.winningStreak = elem.winningStreak + 1
+        this.setState({ habits: arr })
+        this.setState({ renderTestRemind: !this.state.renderTestRemind })
     }
 
     render() { 
@@ -175,7 +195,11 @@ class NewFeature extends React.Component {
                 {this.state.renderEdit ? <Edit editSubmit={this.editSubmit} habitEdit={this.state.habitEdit} /> : null }
                 <br/>
 
-                <HabitsContainer delete={this.delete} edit={this.edit} habits={this.state.habits} testRnd={this.testRemind}/>
+                <br/>
+                {this.state.renderTestRemind ? <TestRemind testRemindSubmit={this.testRemindSubmit} habitTestRemind={this.state.habitTestRemind} /> : null }
+                <br/>
+
+                <HabitsContainer delete={this.delete} edit={this.edit} habits={this.state.habits} testRemind={this.testRemind}/>
 
                 <br/>
                 <br/>

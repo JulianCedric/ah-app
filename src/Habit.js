@@ -16,7 +16,7 @@ class Habit extends React.Component {
 
     handleClickTestRemind = (id, desc) => {
         console.log('EVENT: USER CLICKED [ Test Remind ] BUTTON.')
-        this.props.edit(id, desc)
+        this.props.testRemind(id, desc)
     }
 
     render() { 
@@ -34,6 +34,8 @@ class Habit extends React.Component {
                         <Button onClick={() => this.handleClickTestRemind(this.props.habit.id, this.props.habit.desc)}>Test Remind</Button>
                     </Card.Content>
                     <Card.Content>
+                        <Card.Meta>Winning Streak: {this.props.habit.winningStreak} / 21 Days</Card.Meta> 
+                        <br/>
                         <Card.Meta>Start Date/Time:</Card.Meta>
                         <Card.Meta>{this.props.habit.startDate}</Card.Meta>
                     </Card.Content>
