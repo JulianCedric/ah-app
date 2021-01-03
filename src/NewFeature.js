@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Button } from 'semantic-ui-react';
-import PersonsContainer from './PersonsContainer';
+import StickifydHabits from './StickifydHabits';
 import Tasks from './Tasks';
 import CreateForm from './CreateForm';
 import HabitsContainer from './HabitsContainer';
@@ -26,7 +26,7 @@ const HABITS = [
         id: 3,
         desc: 'Evening Routine',
         startDate: Date(), 
-        winningStreak: 0
+        winningStreak: 20
     }
 ]
 
@@ -182,7 +182,7 @@ class NewFeature extends React.Component {
                 <br/>
 
                 <br/>
-                <Datetime />
+                {/* <Datetime /> */}
                 <br/>
 
                 <CreateForm create={this.create}/>
@@ -288,7 +288,7 @@ class NewFeature extends React.Component {
                 <br/>
                 <br/>
 
-                { this.state.renderPersons ? <PersonsContainer exercise={this.exercise} persons={this.state.persons}/> : null }
+                { this.state.renderPersons ? <StickifydHabits exercise={this.exercise} persons={this.state.persons}/> : null }
 
 
                 {/* <Button color='yellow' onClick={this.handleClickIndexCard}>Index Card</Button> */}

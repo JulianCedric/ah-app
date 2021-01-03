@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { Button, Card, Form, Grid, Icon, Segment } from 'semantic-ui-react';
 
-class PersonCard extends React.Component {
+class StickifydHabit extends React.Component {
     state = {  }
 
     handleClickExercise = (id, health) => {
@@ -51,4 +51,4 @@ class PersonCard extends React.Component {
     }
 }
  
-export default PersonCard;
+export default StickifydHabit;
