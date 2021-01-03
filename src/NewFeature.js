@@ -6,6 +6,7 @@ import Tasks from './Tasks';
 import CreateForm from './CreateForm';
 import HabitsContainer from './HabitsContainer';
 import Edit from './Edit';
+import Stickifyd from './Stickifyd';
 import TestRemind from './TestRemind';
 import Datetime from 'react-datetime';
 
@@ -78,6 +79,7 @@ class NewFeature extends React.Component {
     state = {  
         habits: [],
         habitEdit: {},
+        habitStickifyd: {},
         habitTestRemind: {},
         person: {},
         persons: [],
@@ -85,6 +87,7 @@ class NewFeature extends React.Component {
         renderGrid: false,
         renderPersons: false,
         renderIndexCard: false,
+        renderStickifyd: false,
         renderTestRemind: false,
         tasks: []
     }
@@ -117,7 +120,7 @@ class NewFeature extends React.Component {
         elem.desc = desc
         this.setState({ habits: arr })
         this.setState({ renderEdit: !this.state.renderEdit })
-    }
+    } 
 
     exercise = (id, health) => {
     // When a user exercises, their health level increases by 10.
@@ -126,7 +129,7 @@ class NewFeature extends React.Component {
         let obj = arr.find(person => person.id === id)
         obj.health = obj.health + 10
         this.setState({ persons: arr })
-    }
+    } 
 
     handleClickLoadHabits = e => {
         console.log('EVENT: USER CLICKED [ Load Habits ] BUTTON.')
@@ -150,6 +153,11 @@ class NewFeature extends React.Component {
         this.setState({ renderGrid: true })
     }
 
+    handleStickifyd = obj => {
+        this.setState({ renderStickifyd: true })
+        this.setState({ habitStickifyd: obj })
+    }
+
     testRemind = (id, desc) => {
         console.log(id, desc)
         let arr = [...this.state.habits]
@@ -163,6 +171,9 @@ class NewFeature extends React.Component {
         let arr = [...this.state.habits]
         let elem = arr.find(habit => habit.id === id)
         elem.winningStreak = elem.winningStreak + 1
+        if (elem.winningStreak === 21) {
+            this.handleStickifyd(elem)
+        }
         this.setState({ habits: arr })
         this.setState({ renderTestRemind: !this.state.renderTestRemind })
     }
@@ -176,6 +187,11 @@ class NewFeature extends React.Component {
                 <h3>New Feature</h3>
                 
                 <Button onClick={this.handleClickLoadHabits} primary>Load Habits</Button>
+
+                <br/>
+                <br/>
+                {this.state.renderStickifyd ? <Stickifyd habitStickifyd={this.state.habitStickifyd} /> : null }
+                <br/>
 
                 <br/>
                 <hr/>
