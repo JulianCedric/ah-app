@@ -143,6 +143,10 @@ class NewFeature extends React.Component {
         this.setState({ renderGrid: true })
     }
 
+    testRemind = (id, desc) => {
+        console.log(id, desc)
+    }
+
     render() { 
         console.log('this.state.: ', this.state.habits)
         console.log('Datetime value: ', Date().value)
@@ -171,7 +175,7 @@ class NewFeature extends React.Component {
                 {this.state.renderEdit ? <Edit editSubmit={this.editSubmit} habitEdit={this.state.habitEdit} /> : null }
                 <br/>
 
-                <HabitsContainer delete={this.delete} edit={this.edit} habits={this.state.habits} />
+                <HabitsContainer delete={this.delete} edit={this.edit} habits={this.state.habits} testRnd={this.testRemind}/>
 
                 <br/>
                 <br/>
