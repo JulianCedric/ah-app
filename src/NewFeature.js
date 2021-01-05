@@ -9,6 +9,7 @@ import Edit from './Edit';
 import Stickifyd from './Stickifyd';
 import TestRemind from './TestRemind';
 import Datetime from 'react-datetime';
+import Test from './Test';
 
 const HABITS = [
     {
@@ -217,7 +218,9 @@ class NewFeature extends React.Component {
                 {this.state.renderTestRemind ? <TestRemind testRemindSubmit={this.testRemindSubmit} habitTestRemind={this.state.habitTestRemind} /> : null }
                 <br/>
 
-                <HabitsContainer delete={this.delete} edit={this.edit} habits={this.state.habits} testRemind={this.testRemind}/>
+                {/* <HabitsContainer delete={this.delete} edit={this.edit} habits={this.state.habits} testRemind={this.testRemind}/> */}
+
+                <Test />
 
                 <br/>
                 <br/>

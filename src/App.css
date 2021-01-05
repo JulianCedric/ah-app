@@ -43,6 +43,11 @@
   margin-right: auto;
 }
 
+.child {
+  flex: 1 1 150px;
+  margin: 5px;
+}
+
 .create-form {
   display: grid;
   place-items: center;
@@ -59,12 +64,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  height: 500px;
-}
-
-.child {
-  flex: 1 1 150px;
-  margin: 5px;
+  width: 90%;
 }
 
 .habits-menu {
@@ -72,6 +72,66 @@
   place-items: center;
 }
 
+.center-contents {
+  display: grid;
+  place-items: center;
+}
+
 img {
   height: 500px;
 }
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  place-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header-section {
+  padding: 2rem;
+  grid-column: 1 / 4;
+  width: 90%;
+}
+
+/* .left-side {
+  background-color: blue;
+  grid-column: 1 / 2;
+}
+
+.main {
+  background-color: orange;
+  grid-column: 2 / 3;
+}
+
+.right-side {
+  background-color: yellow;
+  grid-column: 3 / 4;
+}
+
+.footer {
+  background-color: white;
+  grid-column: 1 / 4;
+} */
