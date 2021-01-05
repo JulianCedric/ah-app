@@ -5,7 +5,8 @@ class CreateForm extends React.Component {
     state = {
         id: 0,
         desc: "",
-        startDate: Date()
+        startDate: Date(),
+        winningStreak: 0
     }
 
     handleChange = e => {
@@ -18,7 +19,9 @@ class CreateForm extends React.Component {
         this.props.create(this.state)
         this.setState({ 
             id: 0,
-            desc: ""
+            desc: "",
+            startDate: Date(),
+            winningStreak: 0
         })   
     }
 
@@ -26,7 +29,7 @@ class CreateForm extends React.Component {
         console.log(this.state)
         console.log(Date().toLocaleString())
         return (
-            <div>
+            <div className="create-form">
                 <Form onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Input
@@ -36,7 +39,7 @@ class CreateForm extends React.Component {
                             onChange={this.handleChange}
                         />     
                     </Form.Group>
-                    <Form.Button content='Start' />
+                    <Form.Button color='green' content='Start' />
                 </Form>
             </div>
         );

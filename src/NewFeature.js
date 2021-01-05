@@ -96,20 +96,17 @@ class NewFeature extends React.Component {
     }
 
     create = obj => {
-        console.log(obj)
         obj.id = this.state.habits.length + 1
         let arr = [...this.state.habits, obj]
         this.setState({ habits: arr })
     }
 
     delete = id => {
-        console.log(id)
         let arr = this.state.habits.filter(habit => habit.id !== id)
         this.setState({ habits: arr })
     }
 
     edit = (id, desc) => {
-        console.log( id, desc)
         let arr = [...this.state.habits]
         let obj = arr.find(elem => elem.id === id)
         this.setState({ renderEdit: true })
@@ -117,7 +114,6 @@ class NewFeature extends React.Component {
     }
 
     editSubmit = (id, desc) => {
-        console.log(id, desc)
         let arr = [...this.state.habits]
         let elem = arr.find(habit => habit.id === id)
         elem.desc = desc
@@ -127,7 +123,7 @@ class NewFeature extends React.Component {
 
     exercise = (id, health) => {
     // When a user exercises, their health level increases by 10.
-        console.log('EVENT2: USER CLICKED [ Exercise ] BUTTON.')    
+        // console.log('EVENT2: USER CLICKED [ Exercise ] BUTTON.')    
         let arr = [...this.state.persons]
         let obj = arr.find(person => person.id === id)
         obj.health = obj.health + 10
@@ -135,23 +131,23 @@ class NewFeature extends React.Component {
     } 
 
     handleClickLoadHabits = e => {
-        console.log('EVENT: USER CLICKED [ Load Habits ] BUTTON.')
+        // console.log('EVENT: USER CLICKED [ Load Habits ] BUTTON.')
         this.setState({ habits: HABITS })
     }
 
     handleClickLoadPersons = e => {
-        console.log('EVENT: USER CLICKED [ Load Tasks ] BUTTON.')
+        // console.log('EVENT: USER CLICKED [ Load Tasks ] BUTTON.')
         this.setState({ persons: PERSONS })
         this.setState({ renderPersons: true })
     }
 
     handleClickLoadTasks = e => {
-        console.log('EVENT: USER CLICKED [ Load Tasks ] BUTTON.')
+        // console.log('EVENT: USER CLICKED [ Load Tasks ] BUTTON.')
         this.setState({ tasks: TASKS })
     }
 
     handleClickIndexCard = e => {
-        console.log('EVENT: USER CLICKED [ Index Card ] BUTTON.')
+        // console.log('EVENT: USER CLICKED [ Index Card ] BUTTON.')
         this.setState({ renderIndexCard: true })
         this.setState({ renderGrid: true })
     }
@@ -165,7 +161,6 @@ class NewFeature extends React.Component {
     // }
 
     testRemind = (id, desc) => {
-        console.log(id, desc)
         let arr = [...this.state.habits]
         let obj = arr.find(elem => elem.id === id)
         this.setState({ renderTestRemind: true })
@@ -173,7 +168,6 @@ class NewFeature extends React.Component {
     }
 
     testRemindSubmit = (id, desc) => {
-        console.log(id, desc)
         let arr = [...this.state.habits]
         let elem = arr.find(habit => habit.id === id)
         elem.winningStreak = elem.winningStreak + 1
@@ -187,8 +181,7 @@ class NewFeature extends React.Component {
     }
 
     render() { 
-        console.log('this.state.: ', this.state.habits)
-        console.log('Datetime value: ', Date().value)
+        console.log("test")
         return (            
             <div style={{color: 'grey'}}>
                 <br/>
@@ -199,7 +192,7 @@ class NewFeature extends React.Component {
                 <br/>
                 <br/>
                 {/* {this.state.renderStickifyd ? <Stickifyd habitStickifyd={this.state.habitStickifyd} /> : null }                 */}
-                <Stickifyd habitStickifyd={this.state.habitStickifyd} />
+                {/* <Stickifyd habitStickifyd={this.state.habitStickifyd} /> */}
 
                 <br/>
                 <br/>

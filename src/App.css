@@ -43,6 +43,35 @@
   margin-right: auto;
 }
 
+.create-form {
+  display: grid;
+  place-items: center;
+}
+
+.empty-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 425px;
+}
+
+.habits-container-parent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 500px;
+}
+
+.child {
+  flex: 1 1 150px;
+  margin: 5px;
+}
+
+.habits-menu {
+  display: grid;
+  place-items: center;
+}
+
 img {
   height: 500px;
 }
