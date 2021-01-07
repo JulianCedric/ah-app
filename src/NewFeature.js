@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Button } from 'semantic-ui-react';
+import { Button, Progress } from 'semantic-ui-react';
 import StickifydHabits from './StickifydHabits';
 import Tasks from './Tasks';
 import CreateForm from './CreateForm';
@@ -9,7 +9,6 @@ import Edit from './Edit';
 import Stickifyd from './Stickifyd';
 import TestRemind from './TestRemind';
 import Datetime from 'react-datetime';
-import Test from './Test';
 
 const HABITS = [
     {
@@ -81,6 +80,7 @@ const TASKS = [
 
 class NewFeature extends React.Component {
     state = {  
+        habit: {},
         habits: [],
         habitEdit: {},
         habitStickifyd: {},
@@ -91,6 +91,7 @@ class NewFeature extends React.Component {
         renderGrid: false,
         renderPersons: false,
         renderIndexCard: false,
+        renderProgress: false,
         renderStickifyd: false,
         renderTestRemind: false,
         tasks: []
@@ -98,8 +99,14 @@ class NewFeature extends React.Component {
 
     create = obj => {
         obj.id = this.state.habits.length + 1
+        this.progressCard(obj)
         let arr = [...this.state.habits, obj]
         this.setState({ habits: arr })
+        this.setState({ renderProgress: true })
+    }
+
+    progressCard = obj => {
+        this.setState({ habit: obj })
     }
 
     delete = id => {
@@ -192,16 +199,7 @@ class NewFeature extends React.Component {
 
                 <br/>
                 <br/>
-                {/* {this.state.renderStickifyd ? <Stickifyd habitStickifyd={this.state.habitStickifyd} /> : null }                 */}
-                {/* <Stickifyd habitStickifyd={this.state.habitStickifyd} /> */}
-
-                <br/>
-                <br/>
                 <hr/>
-                <br/>
-
-                <br/>
-                {/* <Datetime /> */}
                 <br/>
 
                 <CreateForm create={this.create}/>
@@ -210,7 +208,11 @@ class NewFeature extends React.Component {
                 <br/>
                 <br/>
 
-                <br/>
+                <Progress inverted>
+                    
+                </Progress>
+
+                {/* <br/>
                 {this.state.renderEdit ? <Edit editSubmit={this.editSubmit} habitEdit={this.state.habitEdit} /> : null }
                 <br/>
 
@@ -218,7 +220,6 @@ class NewFeature extends React.Component {
                 {this.state.renderTestRemind ? <TestRemind testRemindSubmit={this.testRemindSubmit} habitTestRemind={this.state.habitTestRemind} /> : null }
                 <br/>
 
-                {/* <HabitsContainer delete={this.delete} edit={this.edit} habits={this.state.habits} testRemind={this.testRemind}/> */}
 
                 <Test />
 
@@ -312,7 +313,7 @@ class NewFeature extends React.Component {
                 { this.state.renderPersons ? <StickifydHabits exercise={this.exercise} persons={this.state.persons}/> : null }
 
 
-                {/* <Button color='yellow' onClick={this.handleClickIndexCard}>Index Card</Button> */}
+                <Button color='yellow' onClick={this.handleClickIndexCard}>Index Card</Button>
 
                 <br/>
                 <br/>
@@ -345,9 +346,11 @@ class NewFeature extends React.Component {
                 <br/>
                 <br/>
                 <br/>
-                <br/>
+                <br/> */}
 
             </div>
+
+
         );
     }
 }

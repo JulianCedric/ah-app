@@ -88,6 +88,11 @@ img {
   place-items: center;
 }
 
+.progress-card {
+  display: grid;
+  place-items: center;
+}
+
 
 
 
