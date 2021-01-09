@@ -1,9 +1,16 @@
 import React from 'react';
 import './App.css';
-import { Progress } from 'semantic-ui-react';
+import { Button, Checkbox, Progress } from 'semantic-ui-react';
 
 class Practice extends React.Component {
-    state = {  }
+    state = { 
+        percent: 0
+     }
+
+     increase = e => {
+        this.setState({ percent: this.state.percent + 25 })
+     }
+
     render() { 
         return (  
             <div style={{ color: 'grey' }}>
@@ -12,13 +19,16 @@ class Practice extends React.Component {
                 <br/>
                 <hr/>
                 <br/>
-                <Progress inverted /> 
+                <Progress percent={this.state.percent} indicating inverted /> 
+                <br/>
                 <br/> 
-                <p>MR</p>
+                <Checkbox onClick={this.increase}/><span> Morning Routine</span>
                 <br/>
-                <p>M-DR</p>
+                <Checkbox onClick={this.increase}/><span> Mid-Day Routine</span>
                 <br/>
-                <p>ER</p>
+                <Checkbox onClick={this.increase}/><span> Evening Routine</span>
+                <br/>
+                <br/>
                 <br/>
                 <br/>
                 <br/>
