@@ -5,6 +5,7 @@ import { Button, Checkbox, Form, Progress } from 'semantic-ui-react';
 class Practice extends React.Component {
     state = { 
         goal: "",
+        yourGoal: "",
         percent: 0
      }
 
@@ -12,10 +13,21 @@ class Practice extends React.Component {
          this.setState({ [e.target.name]: e.target.value })
      }
 
+     handleChangeYourGoal = e => {
+        this.setState({ [e.target.name]: e.target.value })
+    }
+
      handleSubmit = e => {
-         
+
         this.setState({
-            goal: ""
+            goal: ""    
+        })
+     }
+
+     handleSubmitYourGoal = e => {
+
+        this.setState({
+            yourGoal: ""    
         })
      }
 
@@ -24,6 +36,7 @@ class Practice extends React.Component {
      }
 
     render() { 
+        console.log('this.state.yourGoal: ', this.state.yourGoal)
         return (  
             <div style={{ color: 'grey' }}>
                 <br/>
@@ -31,7 +44,20 @@ class Practice extends React.Component {
                 <br/>
                 <hr/>
                 <br/>
-                <Progress percent={this.state.percent} indicating inverted /> 
+                <br/>
+                <Form className='center-contents' onSubmit={this.handleSubmitYourGoal}>
+                    <Form.Group>
+                        <Form.Input 
+                            placeholder='Your Goal.. '
+                            name='yourGoal'
+                            value={this.state.yourGoal}
+                            onChange={this.handleChangeYourGoal}
+                        />
+                        <Form.Button content='Submit' color='orange'/>
+                    </Form.Group>
+                </Form>
+                <br/>
+                <Progress percent={this.state.percent} indicating inverted/> 
                 <br/>
                 <br/> 
                 <Checkbox onClick={this.increase}/><span> Morning Routine</span>
@@ -44,12 +70,12 @@ class Practice extends React.Component {
                 <Form className='center-contents' onSubmit={this.handleSubmit}>
                     <Form.Group>
                         <Form.Input 
-                            placeholder='Your Goal.. '
+                            placeholder='Re-Type Your Goal.. '
                             name='goal'
                             value={this.state.goal}
                             onChange={this.handleChange}
                         />
-                        <Form.Button content='Submit' color='orange' />
+                        <Form.Button content='Submit' color='orange' inverted/>
                     </Form.Group>
                 </Form>
                 <br/>
