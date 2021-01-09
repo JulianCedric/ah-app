@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Lab from './Lab';
 import ThinkSpace from './ThinkSpace';
 import NewFeature from './NewFeature';
+import Practice from './Practice';
 // import Login from './Login';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
@@ -37,6 +38,7 @@ class App extends React.Component {
             <Route path='/lab' render={(props) => (<Lab {...props} />)}></Route>
             <Route path='/thinkspace' render={(props) => (<ThinkSpace {...props} />)}></Route>
             <Route path='/newfeature' render={(props) => (<NewFeature {...props} />)}></Route>
+            <Route path='/practice' render={(props) => (<Practice {...props} />)}></Route>
           </div>
         </Switch>
       </React.Fragment>
