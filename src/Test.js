@@ -64,3 +64,10 @@ class Test extends React.Component {
 }
  
 export default Test;
+
+
+
+
+// If the value of the second form equals the value of the first form, then progress bar increases. 
+
+// If not, then user is prompted to re-type the value in the second form correctly. 

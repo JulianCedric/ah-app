@@ -1,42 +1,38 @@
 import React from 'react';
 import './App.css';
 import { Button, Checkbox, Form, Progress } from 'semantic-ui-react';
+import CreateGoal from './CreateGoal';
+import DailyProgress from './DailyProgress';
 
 class Practice extends React.Component {
     state = { 
-        goal: "",
-        yourGoal: "",
-        percent: 0
-     }
-
-     handleChange = e => {
-         this.setState({ [e.target.name]: e.target.value })
-     }
-
-     handleChangeYourGoal = e => {
-        this.setState({ [e.target.name]: e.target.value })
-    }
-
-     handleSubmit = e => {
-
-        this.setState({
-            goal: ""    
-        })
-     }
-
-     handleSubmitYourGoal = e => {
-
-        this.setState({
-            yourGoal: ""    
-        })
+        goals: [],
+        percent: 0,
+        reTypedGoal: []
      }
 
      increase = e => {
         this.setState({ percent: this.state.percent + 25 })
      }
 
+     match() {
+        // (  ) ? console.log('true') : console.log('false') 
+     }
+
+     setGoal = obj => {
+        let newArr = [...this.state.goals, obj]
+        this.setState({ goals: newArr })
+    }
+
+    setReTypedGoal = obj => {
+        let newArr = [...this.state.reTypedGoal, obj]
+        this.setState({ reTypedGoal: newArr })
+        this.match()
+    }
+
     render() { 
-        console.log('this.state.yourGoal: ', this.state.yourGoal)
+        console.log('Current state of goals: ', this.state.goals)
+        console.log('Current state of reTypedGoal: ', this.state.reTypedGoal)
         return (  
             <div style={{ color: 'grey' }}>
                 <br/>
@@ -45,39 +41,9 @@ class Practice extends React.Component {
                 <hr/>
                 <br/>
                 <br/>
-                <Form className='center-contents' onSubmit={this.handleSubmitYourGoal}>
-                    <Form.Group>
-                        <Form.Input 
-                            placeholder='Your Goal.. '
-                            name='yourGoal'
-                            value={this.state.yourGoal}
-                            onChange={this.handleChangeYourGoal}
-                        />
-                        <Form.Button content='Submit' color='orange'/>
-                    </Form.Group>
-                </Form>
+                <CreateGoal setGoal={this.setGoal}/> 
                 <br/>
-                <Progress percent={this.state.percent} indicating inverted/> 
-                <br/>
-                <br/> 
-                <Checkbox onClick={this.increase}/><span> Morning Routine</span>
-                <br/>
-                <Checkbox onClick={this.increase}/><span> Mid-Day Routine</span>
-                <br/>
-                <Checkbox onClick={this.increase}/><span> Evening Routine</span>
-                <br/>
-                <br/>
-                <Form className='center-contents' onSubmit={this.handleSubmit}>
-                    <Form.Group>
-                        <Form.Input 
-                            placeholder='Re-Type Your Goal.. '
-                            name='goal'
-                            value={this.state.goal}
-                            onChange={this.handleChange}
-                        />
-                        <Form.Button content='Submit' color='orange' inverted/>
-                    </Form.Group>
-                </Form>
+                <DailyProgress goal={this.state.goal} increase={this.increase} percent={this.state.percent} setReTypedGoal={this.setReTypedGoal} />
                 <br/>
                 <br/>
                 <br/>
