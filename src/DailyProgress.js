@@ -11,8 +11,8 @@ class DailyProgress extends React.Component {
     }
 
     handleSubmit = e => {
-        let reTypedGoal = this.state.goal
-        this.props.setReTypedGoal(reTypedGoal)
+        let goalB = this.state.goal
+        this.props.setGoalB(goalB)
         this.setState({
             goal: ""    
         })
@@ -22,6 +22,7 @@ class DailyProgress extends React.Component {
         return (  
             <div>
                 <Progress percent={this.props.percent} indicating inverted/> 
+                <Progress percent={50} indicating inverted/> 
                 <br/>
                 <br/> 
                 <Checkbox onClick={this.props.increase}/><span> Morning Routine</span>

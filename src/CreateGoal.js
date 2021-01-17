@@ -12,7 +12,7 @@ class CreateGoal extends React.Component {
 
     handleSubmitYourGoal = e => {
         let obj = this.state.yourGoal
-        this.props.setGoal(obj)
+        this.props.setGoalA(obj)
         this.setState({
             yourGoal: ""    
         })

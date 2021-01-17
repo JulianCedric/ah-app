@@ -3,36 +3,39 @@ import './App.css';
 import { Button, Checkbox, Form, Progress } from 'semantic-ui-react';
 import CreateGoal from './CreateGoal';
 import DailyProgress from './DailyProgress';
+import Algo from './Algo';
 
 class Practice extends React.Component {
     state = { 
-        goals: [],
-        percent: 0,
-        reTypedGoal: []
+        goalA: {},
+        goalB: {},
+        percent: 0
      }
 
      increase = e => {
         this.setState({ percent: this.state.percent + 25 })
      }
 
-     match() {
-        // (  ) ? console.log('true') : console.log('false') 
+    match() {
+        let a = this.state.goalA
+        let b = this.state.goalB
+        { ( a === b ) ? console.log('true') : console.log('false') }
      }
 
-     setGoal = obj => {
-        let newArr = [...this.state.goals, obj]
-        this.setState({ goals: newArr })
+    setGoalA = obj => {
+        let newObj = {obj}
+        this.setState({ goalA: newObj })
     }
 
-    setReTypedGoal = obj => {
-        let newArr = [...this.state.reTypedGoal, obj]
-        this.setState({ reTypedGoal: newArr })
+    setGoalB = obj => {
+        let newObj = {obj}
+        this.setState({ goalB: newObj })
         this.match()
     }
 
     render() { 
-        console.log('Current state of goals: ', this.state.goals)
-        console.log('Current state of reTypedGoal: ', this.state.reTypedGoal)
+        console.log('Current state of goalA: ', this.state.goalA)      
+        console.log('Current state of goalB: ', this.state.goalB)
         return (  
             <div style={{ color: 'grey' }}>
                 <br/>
@@ -41,11 +44,12 @@ class Practice extends React.Component {
                 <hr/>
                 <br/>
                 <br/>
-                <CreateGoal setGoal={this.setGoal}/> 
+                <CreateGoal setGoalA={this.setGoalA}/> 
                 <br/>
-                <DailyProgress goal={this.state.goal} increase={this.increase} percent={this.state.percent} setReTypedGoal={this.setReTypedGoal} />
+                <DailyProgress goalA={this.state.goalA} increase={this.increase} percent={this.state.percent} setGoalB={this.setGoalB} />
                 <br/>
                 <br/>
+                <Algo />
                 <br/>
             </div>
         );
