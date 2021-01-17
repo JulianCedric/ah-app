@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.css';
-import { Button, Checkbox, Form, Progress } from 'semantic-ui-react';
+import { Button, Checkbox, Form, Progress, Table } from 'semantic-ui-react';
 import CreateGoal from './CreateGoal';
 import DailyProgress from './DailyProgress';
 import Algo from './Algo';
+import TableExampleUnstackable from './TableExampleUnstackable';
 
 class Practice extends React.Component {
     state = { 
@@ -50,6 +51,10 @@ class Practice extends React.Component {
                 <br/>
                 <br/>
                 <Algo />
+                <br/>
+                <br/>
+                <br/>
+                <TableExampleUnstackable />
                 <br/>
             </div>
         );
